@@ -17,7 +17,7 @@ const limitWords = (text: string, maxWords: number): string => {
 
 export default function App() {
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string | undefined;
-  const model = (import.meta.env.VITE_GEMINI_MODEL as string | undefined) || "gemini-1.5-flash";
+  const model = (import.meta.env.VITE_GEMINI_MODEL as string | undefined) || "gemini-3-flash-preview";
   const [prompt, setPrompt] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
