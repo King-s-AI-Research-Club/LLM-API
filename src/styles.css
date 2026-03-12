@@ -1,0 +1,235 @@
+:root {
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  color: #334155;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 12%, #ffe6ef 0, #ffe6ef 18%, transparent 19%),
+    radial-gradient(circle at 88% 18%, #dcfce7 0, #dcfce7 16%, transparent 17%),
+    linear-gradient(170deg, #fdf2f8 0%, #eff6ff 45%, #f0fdfa 100%);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.chat-shell {
+  width: min(760px, 100%);
+  height: min(86vh, 800px);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(8px);
+  border: 1px solid #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(90deg, #fce7f3, #d9f99d);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.chat-header p {
+  margin: 0.2rem 0 0;
+  color: #475569;
+  font-size: 0.86rem;
+}
+
+.bot-avatar {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #fff7ed;
+  border: 2px solid #fb7185;
+  box-shadow: inset 0 -6px 0 #fed7aa;
+}
+
+.ear {
+  position: absolute;
+  top: -10px;
+  width: 16px;
+  height: 18px;
+  border-radius: 12px;
+  background: #fda4af;
+}
+
+.ear-left {
+  left: 6px;
+  transform: rotate(-20deg);
+}
+
+.ear-right {
+  right: 6px;
+  transform: rotate(20deg);
+}
+
+.eye {
+  position: absolute;
+  top: 20px;
+  width: 6px;
+  height: 9px;
+  border-radius: 9px;
+  background: #334155;
+}
+
+.eye-left {
+  left: 16px;
+}
+
+.eye-right {
+  right: 16px;
+}
+
+.mouth {
+  position: absolute;
+  left: 50%;
+  bottom: 11px;
+  width: 13px;
+  height: 7px;
+  transform: translateX(-50%);
+  border: 2px solid #ef4444;
+  border-top: 0;
+  border-radius: 0 0 9px 9px;
+}
+
+.chat-body {
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 16px;
+  line-height: 1.35;
+  box-shadow: 0 4px 10px rgba(30, 41, 59, 0.06);
+}
+
+.bubble p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.bubble.bot {
+  align-self: flex-start;
+  border-top-left-radius: 6px;
+  background: #ffffff;
+  border: 1px solid #fbcfe8;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  border-top-right-radius: 6px;
+  background: linear-gradient(135deg, #bae6fd, #99f6e4);
+  color: #0f172a;
+}
+
+.bubble.loading {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.bubble.loading span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fb7185;
+  animation: bounce 0.9s infinite ease-in-out;
+}
+
+.bubble.loading span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.bubble.loading span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.error-text {
+  margin: 0;
+  padding: 0 1rem 0.5rem;
+  color: #be123c;
+  font-size: 0.85rem;
+}
+
+.chat-input {
+  border-top: 1px solid #e2e8f0;
+  padding: 0.9rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.chat-input textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem 0.85rem;
+  font: inherit;
+  background: #ffffff;
+}
+
+.chat-input button {
+  border: none;
+  border-radius: 14px;
+  width: 86px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f43f5e, #f97316);
+}
+
+.chat-input button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 640px) {
+  .chat-shell {
+    height: calc(100vh - 1.2rem);
+    border-radius: 18px;
+  }
+
+  .bubble {
+    max-width: 88%;
+  }
+}
