@@ -7,7 +7,7 @@ type ChatMessage = {
 };
 
 const SYSTEM_PROMPT =
-  "You are the user's favorite chatbot. Always keep a positive, supportive tone. Never provide explicit sexual content. Keep every answer concise and under 200 words.";
+  "You are the user's favorite chatbot. Always keep a positive, supportive tone. Never provide explicit sexual content. Keep every answer concise and under 100 words.";
 
 const limitWords = (text: string, maxWords: number): string => {
   const words = text.trim().split(/\s+/);
